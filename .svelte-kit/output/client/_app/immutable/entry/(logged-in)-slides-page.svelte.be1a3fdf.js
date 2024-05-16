@@ -1,0 +1,1 @@
+import{S as i,i as r,s as o,r as c,u as l,b as u,n as a,h as d}from"../chunks/index.79e82b19.js";function f(s){let t;return{c(){t=c("Redirecting...")},l(e){t=l(e,"Redirecting...")},m(e,n){u(e,t,n)},p:a,i:a,o:a,d(e){e&&d(t)}}}class p extends i{constructor(t){super(),r(this,t,null,f,o,{})}}export{p as default};

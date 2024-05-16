@@ -1,0 +1,136 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "sqlite"
+    url      = env("DATABASE_URL")
+}
+
+model Account {
+    id                String  @id
+    userId            String?
+    user              User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+    provider          String
+    providerAccountId String
+
+    @@unique([provider, providerAccountId])
+}
+
+model Coverslip {
+    id              String          @id
+    shape           String
+    coating         String
+    createdAt       DateTime        @default(now())
+    createdByUserId String
+    createdBy       User            @relation(fields: [createdByUserId], references: [id], onDelete: Cascade)
+    files           CoverslipFile[]
+    positionX       Float?
+    positionY       Float?
+    slideId         String
+    slide           Slide           @relation(fields: [slideId], references: [id], onDelete: Cascade)
+    specimen        String
+    stainings       Staining[]
+    updatedAt       DateTime        @updatedAt
+    plateIdx        Int?            @default(-1)
+}
+
+model CoverslipFile {
+    id              String    @id
+    createdAt       DateTime  @default(now())
+    createdByUserId String
+    createdBy       User      @relation(fields: [createdByUserId], references: [id], onDelete: Cascade)
+    coverslipId     String
+    coverslip       Coverslip @relation(fields: [coverslipId], references: [id], onDelete: Cascade)
+    name            String
+    size            Int
+    updatedAt       DateTime  @updatedAt
+}
+
+model Experiment {
+    id              String   @id
+    createdAt       DateTime @default(now())
+    createdByUserId String
+    createdBy       User     @relation(fields: [createdByUserId], references: [id], onDelete: Cascade)
+    projectId       String
+    project         Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+    title           String
+    slides           Slide[]
+    updatedAt       DateTime @updatedAt
+}
+
+model Project {
+    id              String       @id
+    createdAt       DateTime     @default(now())
+    createdByUserId String
+    createdBy       User         @relation(fields: [createdByUserId], references: [id], onDelete: Cascade)
+    experiments     Experiment[]
+    title           String
+    updatedAt       DateTime     @updatedAt
+}
+
+model Session {
+    id           String   @id
+    expires      DateTime
+    sessionToken String   @unique
+    userId       String?
+    user         User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Slide {
+    id              String      @id
+    boxNumber       Int?
+    boxPosition     Int?
+    coverslips      Coverslip[]
+    createdAt       DateTime    @default(now())
+    createdByUserId String
+    createdBy       User        @relation(fields: [createdByUserId], references: [id], onDelete: Cascade)
+    experimentId    String
+    experiment      Experiment  @relation(fields: [experimentId], references: [id], onDelete: Cascade)
+    comments        String?
+    observedOn      DateTime    @default(now())
+    title           String
+    updatedAt       DateTime    @updatedAt
+    type            String      @default("slide")
+}
+
+model Staining {
+    id              String          @id
+    createdAt       DateTime        @default(now())
+    createdByUserId String
+    createdBy       User            @relation(fields: [createdByUserId], references: [id], onDelete: Cascade)
+    coverslipId     String
+    coverslip       Coverslip       @relation(fields: [coverslipId], references: [id], onDelete: Cascade)
+    fields          StainingField[]
+    updatedAt       DateTime        @updatedAt
+}
+
+model StainingField {
+    id              String   @id
+    createdAt       DateTime @default(now())
+    createdByUserId String
+    createdBy       User     @relation(fields: [createdByUserId], references: [id], onDelete: Cascade)
+    name            String
+    value           String
+    stainingId      String
+    staining        Staining @relation(fields: [stainingId], references: [id], onDelete: Cascade)
+    updatedAt       DateTime @updatedAt
+}
+
+model User {
+    id             String          @id
+    accounts       Account[]
+    coverslips     Coverslip[]
+    coverslipFiles CoverslipFile[]
+    createdAt      DateTime        @default(now())
+    email          String          @unique
+    experiments    Experiment[]
+    name           String?
+    projects       Project[]
+    role           String          @default("USER")
+    sessions       Session[]
+    slides         Slide[]
+    updatedAt      DateTime        @updatedAt
+    stainings      Staining[]
+    stainingFields StainingField[]
+}

@@ -1,0 +1,65 @@
+{
+	"/(logged-in)": [
+		"src/routes/(logged-in)/+layout.server.js"
+	],
+	"/": [
+		"src/routes/+page.server.js"
+	],
+	"/(logged-in)/api/v1/coverslips": [
+		"src/routes/(logged-in)/api/v1/coverslips/+server.js"
+	],
+	"/(logged-in)/api/v1/experiments": [
+		"src/routes/(logged-in)/api/v1/experiments/+server.js"
+	],
+	"/(logged-in)/api/v1/files/download": [
+		"src/routes/(logged-in)/api/v1/files/download/+server.js"
+	],
+	"/(logged-in)/api/v1/projects": [
+		"src/routes/(logged-in)/api/v1/projects/+server.js"
+	],
+	"/(logged-in)/coverslip/[coverslipId]": [
+		"src/routes/(logged-in)/coverslip/[coverslipId]/+page.server.js",
+		"src/routes/(logged-in)/coverslip/[coverslipId]/+layout.server.js",
+		"src/routes/(logged-in)/+layout.server.js",
+		"src/routes/(logged-in)/coverslip/[coverslipId]/+layout.server.js",
+		"src/routes/(logged-in)/+layout.server.js"
+	],
+	"/(logged-in)/coverslip/[coverslipId]/files": [
+		"src/routes/(logged-in)/coverslip/[coverslipId]/files/+page.server.js",
+		"src/routes/(logged-in)/coverslip/[coverslipId]/+layout.server.js",
+		"src/routes/(logged-in)/+layout.server.js"
+	],
+	"/(logged-in)/coverslip/[coverslipId]/staining": [
+		"src/routes/(logged-in)/coverslip/[coverslipId]/staining/+page.server.js",
+		"src/routes/(logged-in)/coverslip/[coverslipId]/+layout.server.js",
+		"src/routes/(logged-in)/+layout.server.js"
+	],
+	"/(logged-in)/experiments": [
+		"src/routes/(logged-in)/experiments/+page.server.js",
+		"src/routes/(logged-in)/+layout.server.js"
+	],
+	"/(logged-in)/experiment/[experimentId]": [
+		"src/routes/(logged-in)/experiment/[experimentId]/+page.server.js",
+		"src/routes/(logged-in)/+layout.server.js"
+	],
+	"/(logged-in)/projects": [
+		"src/routes/(logged-in)/projects/+page.server.js",
+		"src/routes/(logged-in)/+layout.server.js"
+	],
+	"/(logged-in)/project/[projectId]": [
+		"src/routes/(logged-in)/project/[projectId]/+page.server.js",
+		"src/routes/(logged-in)/+layout.server.js"
+	],
+	"/(logged-in)/slides": [
+		"src/routes/(logged-in)/slides/+page.server.js",
+		"src/routes/(logged-in)/+layout.server.js"
+	],
+	"/(logged-in)/slide/[slideId]": [
+		"src/routes/(logged-in)/slide/[slideId]/+page.server.js",
+		"src/routes/(logged-in)/+layout.server.js"
+	],
+	"/(logged-in)/slide/[slideId]/table": [
+		"src/routes/(logged-in)/slide/[slideId]/table/+page.server.js",
+		"src/routes/(logged-in)/+layout.server.js"
+	]
+}

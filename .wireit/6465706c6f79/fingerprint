@@ -1,0 +1,1 @@
+{"fullyTracked":false,"platform":"linux","arch":"x64","nodeVersion":"v20.5.1","command":"pm2 stop slide-tracking; pm2 start --name=slide-tracking ./build/index.js","extraArgs":[],"clean":true,"files":{},"output":[],"dependencies":{"[\"/home/gserikba/slide-tracking2-master\",\"build\"]":"2ea38d19742da0754564721dfb0dd889f2ae66166570dda7a5bfd380f64beecc"},"env":{}}

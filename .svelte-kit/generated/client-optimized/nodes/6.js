@@ -1,0 +1,1 @@
+export { default as component } from "../../../../src/routes/(logged-in)/coverslip/[coverslipId]/files/+page.svelte";
