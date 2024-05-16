@@ -1,0 +1,115 @@
+.unbutton {
+	background-color: transparent;
+	border: none;
+	color: inherit;
+}
+.item-list {
+	display: grid;
+}
+.item-list .th {
+	border-bottom: var(--st-border);
+	margin-bottom: var(--br-size-2);
+}
+.item-list div {
+	padding: var(--br-size-2) var(--br-size-3);
+}
+.item-list .row {
+	display: contents;
+}
+.item-list .row > *:first-child {
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+}
+.item-list .row > *:last-child {
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+.item-list a.row:hover > * {
+	background-color: var(--br-dark, rgba(255, 255, 255, 0.1)) var(--br-light, hsl(215deg 100% 90%));
+	color: var(--br-light, hsl(225deg 100% 45%));
+}
+
+.overflow-ellipsis {
+	display: block;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+:root {
+	--st-border: var(--br-dark, 1px solid #6c6c6c) var(--br-light, 1px solid #c3c3c3);
+	--st-box-shadow: var(--br-dark, 0 2px 8px rgba(0,0,0, 0.5)) var(--br-light, 0 2px 8px rgba(0, 0, 0, 0.35));
+	--st-slide-width: var(--br-mobile, 120px)
+			var(--br-tablet-portrait, 160px)
+			var(--br-tablet-landscape, 160px)
+			var(--br-desktop, 160px)
+			var(--br-big-desktop, 160px);
+	--st-plate-width: var(--br-mobile, 180px)
+			var(--br-tablet-portrait, 420px)
+			var(--br-tablet-landscape, 420px)
+			var(--br-desktop, 420px)
+			var(--br-big-desktop, 420px);
+}
+.single-column,
+.double-column {
+	display: grid;
+	gap: 15px;
+}
+.double-column {
+	grid-template-columns: 1fr;
+}
+.single-column {
+	grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+	.double-column {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+:root {
+	--br-mobile: initial;
+	--br-tablet-portrait: ;
+	--br-tablet-landscape: ;
+	--br-desktop: ;
+	--br-big-desktop: ;
+}
+
+@media (min-width: 600px) {
+	:root {
+		--br-mobile: ;
+		--br-tablet-portrait: initial;
+		--br-tablet-landscape: ;
+		--br-desktop: ;
+		--br-big-desktop: ;
+	}
+}
+
+@media (min-width: 900px) {
+	:root {
+		--br-mobile: ;
+		--br-tablet-portrait: ;
+		--br-tablet-landscape: initial;
+		--br-desktop: ;
+		--br-big-desktop: ;
+	}
+}
+
+@media (min-width: 1200px) {
+	:root {
+		--br-mobile: ;
+		--br-tablet-portrait: ;
+		--br-tablet-landscape: ;
+		--br-desktop: initial;
+		--br-big-desktop: ;
+	}
+}
+
+@media (min-width: 1800px) {
+	:root {
+		--br-mobile: ;
+		--br-tablet-portrait: ;
+		--br-tablet-landscape: ;
+		--br-desktop: ;
+		--br-big-desktop: initial;
+	}
+}
